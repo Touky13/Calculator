@@ -13,19 +13,19 @@ let operator = ``;
 let result = 0;
 
 function add () {
-    return display.textContent = aNumber + bNumber;
+    return display.textContent = (aNumber + bNumber).toFixed(5);
 }
 
 function subtract () {
-    return display.textContent = aNumber - bNumber;
+    return display.textContent = (aNumber - bNumber).toFixed(5);
 }
 
 function multiply () {
-    return display.textContent = aNumber * bNumber;
+    return display.textContent = (aNumber * bNumber).toFixed(5);
 }
 
 function divide () {
-    return display.textContent = aNumber / bNumber;
+    return display.textContent = (aNumber / bNumber).toFixed(5);
 }
 
 function operate () {
@@ -64,6 +64,19 @@ clear.addEventListener("click", (e) => {
 
 operatorsArray.forEach(operatorsArray => operatorsArray.addEventListener("click", (e) => {
     selectedOperator = (e.target).textContent;
+    switch (operator) {
+        case ``:
+            operator = selectedOperator;
+            break;   
+        default:
+            aNumber = Number(a.join(``));
+            bNumber = Number(b.join(``));
+            result = operate();
+            operator = selectedOperator;
+            b.splice(0);
+            a.splice(0, Infinity, result);
+            break;
+    }
     operator = selectedOperator;
 }))
 
