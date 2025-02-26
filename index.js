@@ -27,9 +27,10 @@ function multiply () {
 function divide () {
     if (bNumber === 0) {
         return display.textContent = "ERROR";
+    } else if (Number.isInteger(aNumber / bNumber)) {
+        return display.textContent = aNumber / bNumber;
     } else {
         return display.textContent = (aNumber / bNumber).toFixed(5);
-
     }
 }
 
