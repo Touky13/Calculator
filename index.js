@@ -13,19 +13,24 @@ let operator = ``;
 let result = 0;
 
 function add () {
-    return display.textContent = (aNumber + bNumber).toFixed(5);
+    return display.textContent = aNumber + bNumber;
 }
 
 function subtract () {
-    return display.textContent = (aNumber - bNumber).toFixed(5);
+    return display.textContent = aNumber - bNumber;
 }
 
 function multiply () {
-    return display.textContent = (aNumber * bNumber).toFixed(5);
+    return display.textContent = aNumber * bNumber;
 }
 
 function divide () {
-    return display.textContent = (aNumber / bNumber).toFixed(5);
+    if (bNumber === 0) {
+        return display.textContent = "ERROR";
+    } else {
+        return display.textContent = (aNumber / bNumber).toFixed(5);
+
+    }
 }
 
 function operate () {
@@ -86,6 +91,6 @@ egal.addEventListener("click", (e) => {
         bNumber = Number(b.join(``));
         result = operate();    
     } else {
-        
+
     }
 })
