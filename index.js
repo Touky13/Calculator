@@ -1,23 +1,35 @@
-console.log(`Hello World!`);
+const display = document.querySelector(".result");
+const numbers = document.querySelectorAll ("div.numbers > button");
+const clear = document.querySelector ("#clear");
+const operators = document.querySelectorAll ("div.rightBtns > .operators")
 
-let a = 100;
-let b = 50;
-let operator = `+`;
+numbersArray = Array.from(numbers).reverse();
+operatorsArray = Array.from(operators);
+
+console.log (numbers);
+console.log (numbersArray);
+console.log (operators);
+console.log (operatorsArray);
+
+
+let a = [];
+let b = [];
+let operator = ``;
 
 function add () {
-    return a + b;
+    return display.textContent = a + b;
 }
 
 function subtract () {
-    return a - b;
+    return display.textContent = a - b;
 }
 
 function multiply () {
-    return a * b;
+    return display.textContent = a * b;
 }
 
 function divide () {
-    return a / b;
+    return display.textContent = a / b;
 }
 
 function operate () {
@@ -32,4 +44,33 @@ function operate () {
     }
 }
 
-console.log(operate());
+numbersArray.forEach(numbersArray => numbersArray.addEventListener("click", (e) => {
+    selectedNumber = (e.target).textContent;
+    switch (operator) {
+        case ``:
+            a.push (selectedNumber);
+            display.textContent = a.join("");
+            console.log(a, b);
+            break;
+    
+        default:
+            b.push (selectedNumber);
+            display.textContent = b.join("");
+            console.log(a, b);
+            break;
+    }
+}))
+
+clear.addEventListener("click", (e) => {
+    a.splice(0);
+    operator = ``;
+    console.log(a);
+    console.log(operator);
+    return display.textContent = a;
+})
+
+operatorsArray.forEach(operatorsArray => operatorsArray.addEventListener("click", (e) => {
+    selectedOperator = (e.target).textContent;
+    operator = selectedOperator;
+    console.log(operator);
+}))

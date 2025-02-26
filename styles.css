@@ -26,7 +26,7 @@ body {
     height: 200px;
 }
 
-.operators {
+.rightBtns {
     display: flex;
     flex-flow: column;
     min-width: 50px;
