@@ -63,8 +63,10 @@ numbersArray.forEach(numbersArray => numbersArray.addEventListener("click", (e) 
 
 clear.addEventListener("click", (e) => {
     a.splice(0);
+    b.splice(0);
     operator = ``;
     console.log(a);
+    console.log(b);
     console.log(operator);
     return display.textContent = a;
 })
