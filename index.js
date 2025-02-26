@@ -2,34 +2,30 @@ const display = document.querySelector(".result");
 const numbers = document.querySelectorAll ("div.numbers > button");
 const clear = document.querySelector ("#clear");
 const operators = document.querySelectorAll ("div.rightBtns > .operators")
+const egal = document.querySelector ("#egal");
 
 numbersArray = Array.from(numbers).reverse();
 operatorsArray = Array.from(operators);
 
-console.log (numbers);
-console.log (numbersArray);
-console.log (operators);
-console.log (operatorsArray);
-
-
 let a = [];
 let b = [];
 let operator = ``;
+let result = 0;
 
 function add () {
-    return display.textContent = a + b;
+    return display.textContent = aNumber + bNumber;
 }
 
 function subtract () {
-    return display.textContent = a - b;
+    return display.textContent = aNumber - bNumber;
 }
 
 function multiply () {
-    return display.textContent = a * b;
+    return display.textContent = aNumber * bNumber;
 }
 
 function divide () {
-    return display.textContent = a / b;
+    return display.textContent = aNumber / bNumber;
 }
 
 function operate () {
@@ -37,7 +33,7 @@ function operate () {
         return add();
     } else if (`${operator}` === `-`) {
         return subtract();
-    } else if (`${operator}` === `*`) {
+    } else if (`${operator}` === `x`) {
         return multiply();
     } else {
         return divide();
@@ -50,13 +46,11 @@ numbersArray.forEach(numbersArray => numbersArray.addEventListener("click", (e) 
         case ``:
             a.push (selectedNumber);
             display.textContent = a.join("");
-            console.log(a, b);
             break;
     
         default:
             b.push (selectedNumber);
             display.textContent = b.join("");
-            console.log(a, b);
             break;
     }
 }))
@@ -65,14 +59,16 @@ clear.addEventListener("click", (e) => {
     a.splice(0);
     b.splice(0);
     operator = ``;
-    console.log(a);
-    console.log(b);
-    console.log(operator);
-    return display.textContent = a;
+    return display.textContent = 0;
 })
 
 operatorsArray.forEach(operatorsArray => operatorsArray.addEventListener("click", (e) => {
     selectedOperator = (e.target).textContent;
     operator = selectedOperator;
-    console.log(operator);
 }))
+
+egal.addEventListener("click", (e) => {
+    aNumber = Number(a.join(``));
+    bNumber = Number(b.join(``));
+    result = operate();
+})
