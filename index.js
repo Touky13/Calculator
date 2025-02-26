@@ -81,7 +81,11 @@ operatorsArray.forEach(operatorsArray => operatorsArray.addEventListener("click"
 }))
 
 egal.addEventListener("click", (e) => {
-    aNumber = Number(a.join(``));
-    bNumber = Number(b.join(``));
-    result = operate();
+    if (operator !== ``) {
+        aNumber = Number(a.join(``));
+        bNumber = Number(b.join(``));
+        result = operate();    
+    } else {
+        
+    }
 })
