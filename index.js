@@ -30,7 +30,11 @@ function divide () {
     } else if (Number.isInteger(aNumber / bNumber)) {
         return display.textContent = aNumber / bNumber;
     } else {
-        return display.textContent = (aNumber / bNumber).toFixed(5);
+        tempResult = (aNumber / bNumber);
+        tempResult = tempResult.toString();
+        display.textContent = tempResult.slice(0, 9);
+        Number(display.textContent);
+        return display.textContent;
     }
 }
 
@@ -90,7 +94,10 @@ egal.addEventListener("click", (e) => {
     if (operator !== ``) {
         aNumber = Number(a.join(``));
         bNumber = Number(b.join(``));
-        result = operate();    
+        result = operate();
+        a.splice(0);
+        b.splice(0);
+        operator = ``;        
     } else {
 
     }
