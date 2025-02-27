@@ -12,18 +12,17 @@ body {
 }
 
 .result {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    text-align: end;
     border: 1px solid black;
-    height: 98px;
+    height: 78px;
     font-size: 3em;
-    padding-right: 10px;
+    padding: 25px 10px 0px 0px;
+    overflow: auto;
 }
 
 .buttons {
     display: flex;
-    height: 200px;
+    height: 220px;
 }
 
 .rightBtns {

@@ -13,28 +13,48 @@ let operator = ``;
 let result = 0;
 
 function add () {
-    return display.textContent = aNumber + bNumber;
+    display.textContent = aNumber + bNumber;
+    if (display.textContent.toString().length >= 10) {
+        return display.textContent = (aNumber + bNumber).toExponential(3);
+    } else {
+        return display.textContent = aNumber + bNumber;
+    }
 }
 
 function subtract () {
-    return display.textContent = aNumber - bNumber;
+    display.textContent = aNumber - bNumber;
+    if (display.textContent.toString().length >= 10) {
+        return display.textContent = (aNumber - bNumber).toExponential(3);
+    } else {
+        return display.textContent = aNumber - bNumber;
+    }
 }
 
 function multiply () {
-    return display.textContent = aNumber * bNumber;
+    display.textContent = aNumber * bNumber;
+    if (display.textContent.toString().length >= 10) {
+        return display.textContent = (aNumber * bNumber).toExponential(3);
+    } else {
+        return display.textContent = aNumber * bNumber;
+    }
 }
 
 function divide () {
     if (bNumber === 0) {
         return display.textContent = "ERROR";
     } else if (Number.isInteger(aNumber / bNumber)) {
-        return display.textContent = aNumber / bNumber;
+        display.textContent = aNumber / bNumber;
+        if (display.textContent.toString().length >= 10) {
+            return display.textContent = (aNumber / bNumber).toExponential(3);
+        } else {
+            return display.textContent = aNumber / bNumber;
+        }
     } else {
-        tempResult = (aNumber / bNumber);
-        tempResult = tempResult.toString();
-        display.textContent = tempResult.slice(0, 9);
-        Number(display.textContent);
-        return display.textContent;
+        result = aNumber / bNumber;
+        function roundNumber (value, decimals) { 
+            return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+        }
+        return display.textContent = roundNumber(result, 2);
     }
 }
 
